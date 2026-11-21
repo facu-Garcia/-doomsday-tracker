@@ -2,15 +2,15 @@
 "use strict";
 const P="https://image.tmdb.org/t/p/w780/";
 const patches={
- eyeswakanda:"https://www.kinonews.ru/insimgs/2025/poster/poster135901_1.webp",
+ eyeswakanda:P+"bG23nZW96LxmWkJjsagRZI9hF6t.jpg",
  marvelzombies:"https://static.nexilia.it/mangaforever/2025/09/marvel_zombies_trailer-1.jpg",
  xmenlast:P+"a2xicU8DpKtRizOHjQLC1JyCSRS.jpg",
- apocalypse:"https://www.impawards.com/2016/posters/xmen_apocalypse_ver1.jpg",
+ apocalypse:P+"ikA8UhYdTGpqbatFa93nIf6noSr.jpg",
  visionquest:"https://image.tmdb.org/t/p/w780/6j60tGRAjBmWRPTOEwhW6oRbPMP.jpg",
- agatha:"https://chscommunicator.com/wp-content/uploads/2025/02/rQSTfu5odec5bFj9YcYEUjELyfsF4Suqqosh0U6V-960x1200.jpg",
+ agatha:P+"mGsxKwXUjojitRv2E9qMTbxbBRd.jpg",
  friendlyspidey:"https://image.tmdb.org/t/p/w780/kjcsNeqF52YUQ2rUBGLMHwLkxvR.jpg",
- daredevilba:"https://f.rpp-noticias.io/2025/01/15/1692815snapinstapp-473807099-2723084657877244-4278080076513490844-n-1080jpg.jpg",
- daredevilba2:"https://f.rpp-noticias.io/2025/01/15/1692815snapinstapp-473807099-2723084657877244-4278080076513490844-n-1080jpg.jpg"
+ daredevilba:P+"xDUoAsU8lQHOOoRkFiBuarmACDN.jpg",
+ daredevilba2:P+"xDUoAsU8lQHOOoRkFiBuarmACDN.jpg"
 };
 for(const [id,url] of Object.entries(patches)){
  const m=map.get(id);if(!m)continue;
