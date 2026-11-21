@@ -2,13 +2,13 @@
 "use strict";
 const P="https://image.tmdb.org/t/p/w780/";
 const patches={
- eyeswakanda:P+"9j4Jqgju3DdiZlb2zgRKU1HmPAs.jpg",
- marvelzombies:P+"wofiHMsXxmp0lTafcBrgciSxBVx.jpg",
+ eyeswakanda:"https://cdn.marvel.com/content/2x/eyes_of_wakanda_lob_crd_01.jpg",
+ marvelzombies:"https://cdn.marvel.com/content/2x/marvel_zombies_lob_crd_01.jpg",
  xmenlast:P+"a2xicU8DpKtRizOHjQLC1JyCSRS.jpg",
  apocalypse:P+"ikA8UhYdTGpqbatFa93nIf6noSr.jpg",
- visionquest:P+"xK27l5uwaVyZSlENWnmLlWwDQNS.jpg",
+ visionquest:"https://image.tmdb.org/t/p/w780/6j60tGRAjBmWRPTOEwhW6oRbPMP.jpg",
  agatha:"https://chscommunicator.com/wp-content/uploads/2025/02/rQSTfu5odec5bFj9YcYEUjELyfsF4Suqqosh0U6V-960x1200.jpg",
- friendlyspidey:"https://image.tmdb.org/t/p/w780/rmRqSa5uOxZ2UKU1P4xHBLMWzE7.jpg",
+ friendlyspidey:"https://image.tmdb.org/t/p/w780/kjcsNeqF52YUQ2rUBGLMHwLkxvR.jpg",
  daredevilba:"https://f.rpp-noticias.io/2025/01/15/1692815snapinstapp-473807099-2723084657877244-4278080076513490844-n-1080jpg.jpg",
  daredevilba2:"https://f.rpp-noticias.io/2025/01/15/1692815snapinstapp-473807099-2723084657877244-4278080076513490844-n-1080jpg.jpg"
 };
@@ -33,7 +33,7 @@ setPoster=function(front,bg,m){
  let idx=0;const apply=()=>{if(idx>=urls.length)return;const src=urls[idx++],im=new Image();im.referrerPolicy="no-referrer";im.onload=()=>{if(front.isConnected){front.src=src;bg.src=src;}};im.onerror=apply;im.src=src;};
  apply();
 };
-const lastMode=(window.localStorage.getItem("doomsday_last_menu_mode")||"doom");
+
 const nav=document.querySelector(".mode-nav"),head=document.querySelector("header.top"),main=document.querySelector("main.main");
 if(!nav||!head||!main)return;
 const bar=document.createElement("div");bar.className="v6-menu-bar";
@@ -79,7 +79,7 @@ const official=[
 ["Charles Xavier / Profesor X","Patrick Stewart","X-Men · X2 · The Last Stand · The Wolverine (escena) · Days of Future Past · Logan (continuidad alternativa) · Doctor Strange in the Multiverse of Madness (variante)","xmen"],
 ["Erik Lehnsherr / Magneto","Ian McKellen","X-Men · X2 · The Last Stand · The Wolverine (escena) · Days of Future Past","xmen"],
 ["Scott Summers / Cíclope","James Marsden","X-Men · X2 · The Last Stand · Days of Future Past","xmen"],
-["Jean Grey no confirmada; Mystique","Rebecca Romijn","X-Men · X2 · The Last Stand · First Class (cameo)","xmen"],
+["Raven Darkhölme / Mystique","Rebecca Romijn","X-Men · X2 · The Last Stand · First Class (cameo)","xmen"],
 ["Kurt Wagner / Nightcrawler","Alan Cumming","X2: X-Men United","x2"],
 ["Hank McCoy / Beast","Kelsey Grammer","The Last Stand · Days of Future Past · The Marvels (escena poscréditos)","xmenlast"],
 ["Remy LeBeau / Gambit","Channing Tatum","Deadpool & Wolverine","deadpool"],
@@ -134,6 +134,7 @@ nav.addEventListener("click",e=>{
  const b=e.target.closest("[data-mode]");if(!b)return;
  closeMenu();
  if(b.dataset.mode!=="cast"){
+ nav.querySelectorAll(".mode-tab").forEach(btn=>btn.setAttribute("aria-selected",String(btn===b)));
  if(document.body.classList.contains("v6-cast-mode")){
  document.body.classList.remove("v6-cast-mode");view.hidden=true;$("pageTitle").innerHTML=oldTitle;$("pageIntro").textContent=oldIntro;
  }
