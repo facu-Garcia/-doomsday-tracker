@@ -1,7 +1,7 @@
 {
   "name": "DOOMSDAY · Marvel Watch Tracker",
   "short_name": "DOOMSDAY",
-  "description": "Tu preparación para Avengers: Doomsday y las 38 películas del UCM por fase y saga.",
+  "description": "Tracker UCM (38 películas y 20 series), camino a Doomsday y universo X-Men (14 películas), por fases y sagas.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
@@ -12,12 +12,6 @@
   "id": "./",
   "icons": [
     {
-      "src": "https://allcountdowns.com/media/events/2026/12/avengers-doomsday-1_n2qZBGm.webp",
-      "sizes": "512x512",
-      "type": "image/webp",
-      "purpose": "any"
-    },
-    {
       "src": "./icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
@@ -27,7 +21,13 @@
       "src": "./icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
   "categories": [
