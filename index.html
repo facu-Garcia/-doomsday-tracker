@@ -320,6 +320,7 @@ footer{border-top-color:#234331}
 @media(max-width:360px){.mode-tab{font-size:11px;padding:10px 6px}}
 .hero-grid.catalog-hero{grid-template-columns:1fr;max-width:650px}
 </style>
+<link rel="stylesheet" href="./catalog-v5.css">
 </head>
 <body>
 <div class="wrap">
@@ -474,7 +475,7 @@ function save(){try{localStorage.setItem(STORAGE_V3,JSON.stringify({version:3,en
  catch(e){saveAvailable=false;$('storageWarn').classList.add('show');notify('No hay almacenamiento: exporta JSON');}}
 function norm(s){return String(s).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim()}
 function notify(s){const el=$('toast');clearTimeout(toastTimer);el.textContent=s;el.classList.add('show');toastTimer=setTimeout(()=>el.classList.remove('show'),2700)}
-const current=()=>mode==='doom'?DOOM:MCU;
+const current=()=>mode==='doom'?DOOM:mode==='xmen'?window.DOOMSDAY_XMEN:MCU;
 function stats(){const o={pending:0,watched:0,known:0,skipped:0};for(const m of current())o[data[m.id].status]++;o.selected=o.watched+o.pending;o.pct=o.selected?Math.round(o.watched/o.selected*100):0;return o}
 function updateStats(){const s=stats();$('doneNum').textContent=s.watched;$('selectedNum').textContent=s.selected;
  $('fill').style.width=s.pct+'%';$('progressbar').setAttribute('aria-valuenow',s.pct);
@@ -576,5 +577,6 @@ function init(){data=load();if('IntersectionObserver' in window){posterObserver=
 }
 init();
 </script>
+<script src="./catalog-v5.js"></script>
 </body>
 </html>
