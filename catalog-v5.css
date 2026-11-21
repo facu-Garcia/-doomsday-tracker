@@ -1,0 +1,29 @@
+
+/* DOOMSDAY V5 · separadores de saga y fase; portadas completas */
+.mode-nav{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+.mode-tab{min-width:0;font-size:11px;padding:11px 4px}
+.mode-tab small{font-size:9px}
+.catalog-fields{grid-template-columns:repeat(2,minmax(0,1fr))}
+.catalog-fields .field:last-child{grid-column:1/-1}
+#xmenFields[hidden]{display:none!important}
+#xmenFields{margin:0 0 14px}
+#xmenFields>.field{max-width:480px}
+.catalog-divider{grid-column:1/-1;min-width:0;margin:16px 0 1px;border:1px solid #254d35;background:linear-gradient(105deg,#102b19,#07170d 75%);padding:17px 14px;border-radius:12px;display:flex;flex-wrap:wrap;align-items:baseline;gap:7px 12px;position:relative;overflow:hidden}
+.catalog-divider:before{position:absolute;content:"";top:0;bottom:0;left:0;width:4px;background:linear-gradient(#a7ffc0,#21b855)}
+.divider-kicker{font-size:10px;color:#93c5a1;letter-spacing:2px;font-weight:900;flex-basis:100%}
+.catalog-divider strong{font-size:clamp(19px,5vw,27px);color:#eaffed;letter-spacing:-.7px}
+.divider-info{font-size:11px;color:#9ccaaa;font-weight:600}
+.catalog-divider.saga-heading{margin-top:25px;padding:24px 16px;border-color:#42a565;background:radial-gradient(ellipse at 100% 0%,#174c2e,#082011 70%);box-shadow:0 0 24px #0ae75512}
+.catalog-divider.saga-heading:before{width:6px;background:linear-gradient(#d5ffe1,#35ea80)}
+.saga-heading strong{font-size:clamp(22px,6vw,34px);text-transform:uppercase}
+.catalog-divider.phase-heading{border-color:#265840;border-radius:10px;background:#0e2015;padding:13px}
+.phase-heading strong{color:#c1f7d3;font-size:19px}
+.poster{aspect-ratio:2/3;display:flex;align-items:center;justify-content:center}
+.poster .poster-front{object-fit:contain!important;object-position:50% 50%!important;width:100%!important;height:100%!important}
+.poster .poster-bg{object-fit:cover!important}
+.card[data-status="watched"]{outline:1px solid #59dc7f;outline-offset:-3px}
+.card[data-status="watched"] .poster-front{filter:saturate(.95) brightness(.93)!important}
+.card[data-status="watched"]:hover .poster-front{filter:none!important}
+.card .movie-meta{font-size:10px}
+@media(min-width:660px){.mode-nav{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.mode-tab{font-size:13px}.mode-tab small{font-size:10px}.catalog-fields{grid-template-columns:repeat(3,1fr)}.catalog-fields .field:last-child{grid-column:auto}}
+@media(max-width:355px){.mode-tab{font-size:10px;padding:10px 2px}.mode-tab small{font-size:8px}}
