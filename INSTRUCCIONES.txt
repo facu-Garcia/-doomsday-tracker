@@ -1,0 +1,9 @@
+DOOMSDAY PWA para GitHub Pages
+
+Sube los archivos de esta carpeta a la raíz de tu repositorio (no subas el ZIP).
+
+Luego en GitHub > Settings > Pages selecciona Deploy from a branch > main > /(root) > Save.
+
+Abre https://facu-garcia.github.io/-doomsday-tracker/ desde Chrome de Android y elige Instalar o Agregar a pantalla principal.
+
+Antes de abandonar el tracker HTML anterior, exporta tu JSON para importar el progreso en la PWA.
