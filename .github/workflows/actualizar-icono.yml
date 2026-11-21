@@ -1,0 +1,52 @@
+name: Actualizar icono oficial de DOOM
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [.github/workflows/actualizar-icono.yml]
+permissions:
+  contents: write
+jobs:
+  icono:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install Pillow==11.3.0
+      - name: Descargar fotografía promocional existente de Marvel Studios y recortarla
+        env:
+          POSTER_URL: https://lumiere-a.akamaihd.net/v1/images/g_disneymovies_avengers_doomsday_7_02a1ebff.jpeg?region=0%2C0%2C1300%2C730
+        run: |
+          python - <<'PY'
+          from PIL import Image,ImageOps
+          import os,urllib.request,io
+          req=urllib.request.Request(os.environ["POSTER_URL"],headers={"User-Agent":"Mozilla/5.0"})
+          with urllib.request.urlopen(req,timeout=40) as res: raw=res.read()
+          im=Image.open(io.BytesIO(raw)).convert("RGB")
+          w,h=im.size
+          # Encuadre del retrato cinematográfico oficial de Doom: mitad derecha del fotograma.
+          size=min(int(h*.98),int(w*.58))
+          cx=int(w*.745)
+          x=max(0,min(w-size,cx-size//2))
+          y=max(0,min(h-size,0))
+          portrait=im.crop((x,y,x+size,y+size))
+          for dim in (192,512,1024):
+              portrait.resize((dim,dim),Image.Resampling.LANCZOS).save(f"icon-{dim}.png",optimize=True)
+          # Icono seguro para enmascarado: encuadre sin pérdida de rasgos por bordes redondeados.
+          base=Image.new("RGB",(512,512),(3,8,5))
+          inner=portrait.resize((420,420),Image.Resampling.LANCZOS)
+          base.paste(inner,(46,46))
+          base.save("icon-maskable-512.png",optimize=True)
+          print("Recorte realizado únicamente a partir de fotografía existente de Disney / Marvel Studios")
+          PY
+      - name: Publicar iconos en main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add icon-192.png icon-512.png icon-1024.png icon-maskable-512.png
+          if ! git diff --cached --quiet; then
+            git commit -m "art: use cropped official Doomsday promotional still [skip ci]"
+            git push
+          fi
