@@ -15,9 +15,9 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install Pillow==11.3.0
-      - name: Descargar fotografía promocional existente de Marvel Studios y recortarla
+      - name: Descargar póster oficial existente de Marvel Studios (RealD 3D) y recortarla
         env:
-          POSTER_URL: https://lumiere-a.akamaihd.net/v1/images/g_disneymovies_avengers_doomsday_7_02a1ebff.jpeg?region=0%2C0%2C1300%2C730
+          POSTER_URL: https://www.comicbasics.com/wp-content/uploads/2026/10/HVz2Zy6WoAEa35k.webp
         run: |
           python - <<'PY'
           from PIL import Image,ImageOps
@@ -27,10 +27,10 @@ jobs:
           im=Image.open(io.BytesIO(raw)).convert("RGB")
           w,h=im.size
           # Encuadre del retrato cinematográfico oficial de Doom: mitad derecha del fotograma.
-          size=min(int(h*.98),int(w*.58))
-          cx=int(w*.745)
+          size=min(w,int(h*.8))
+          cx=w//2
           x=max(0,min(w-size,cx-size//2))
-          y=max(0,min(h-size,0))
+          y=0
           portrait=im.crop((x,y,x+size,y+size))
           for dim in (192,512,1024):
               portrait.resize((dim,dim),Image.Resampling.LANCZOS).save(f"icon-{dim}.png",optimize=True)
@@ -39,7 +39,7 @@ jobs:
           inner=portrait.resize((420,420),Image.Resampling.LANCZOS)
           base.paste(inner,(46,46))
           base.save("icon-maskable-512.png",optimize=True)
-          print("Recorte realizado únicamente a partir de fotografía existente de Disney / Marvel Studios")
+          print("Recorte realizado únicamente a partir de póster existente de Marvel Studios · RealD 3D")
           PY
       - name: Publicar iconos en main
         run: |
