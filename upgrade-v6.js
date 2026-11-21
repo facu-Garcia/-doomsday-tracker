@@ -2,10 +2,10 @@
 "use strict";
 const P="https://image.tmdb.org/t/p/w780/";
 const patches={
- eyeswakanda:"https://cdn.marvel.com/content/2x/eyes_of_wakanda_lob_crd_01.jpg",
- marvelzombies:"https://cdn.marvel.com/content/2x/marvel_zombies_lob_crd_01.jpg",
+ eyeswakanda:"https://www.kinonews.ru/insimgs/2025/poster/poster135901_1.webp",
+ marvelzombies:"https://static.nexilia.it/mangaforever/2025/09/marvel_zombies_trailer-1.jpg",
  xmenlast:P+"a2xicU8DpKtRizOHjQLC1JyCSRS.jpg",
- apocalypse:P+"ikA8UhYdTGpqbatFa93nIf6noSr.jpg",
+ apocalypse:"https://www.impawards.com/2016/posters/xmen_apocalypse_ver1.jpg",
  visionquest:"https://image.tmdb.org/t/p/w780/6j60tGRAjBmWRPTOEwhW6oRbPMP.jpg",
  agatha:"https://chscommunicator.com/wp-content/uploads/2025/02/rQSTfu5odec5bFj9YcYEUjELyfsF4Suqqosh0U6V-960x1200.jpg",
  friendlyspidey:"https://image.tmdb.org/t/p/w780/kjcsNeqF52YUQ2rUBGLMHwLkxvR.jpg",
