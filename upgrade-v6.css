@@ -1,0 +1,76 @@
+
+/* DOOMSDAY V6: a single compact hamburger navigator, cast intelligence, complete posters */
+.v6-menu-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 0 4px}
+.v6-brand{display:flex;flex-direction:column;gap:3px;text-align:right}
+.v6-brand strong{font-size:18px;font-weight:950;letter-spacing:2px;color:#d8ffe5}
+.v6-brand small{color:#8fab9a;letter-spacing:1.6px;font-size:9px}
+.v6-toggle{display:flex;align-items:center;gap:9px;border:1px solid #52ae70;border-radius:13px;padding:11px 15px;background:linear-gradient(130deg,#1b4a2d,#081d10);color:#effff2;font-weight:900;font-size:12px;letter-spacing:1px;box-shadow:0 4px 16px #0007}
+.v6-bars{font-size:24px;font-weight:500;line-height:18px;color:#c0ffd4}
+body .mode-nav.v6-nav{position:fixed;z-index:1100;top:71px;left:max(12px,calc((100vw - 820px)/2));width:min(350px,calc(100vw - 24px));margin:0!important;padding:12px!important;display:none!important;grid-template-columns:1fr!important;gap:7px!important;border:1px solid #54a870;border-radius:17px;background:#08170df7;box-shadow:0 22px 65px #000e;max-height:calc(100dvh - 100px);overflow-y:auto}
+body.v6-open .mode-nav.v6-nav{display:grid!important}
+.mode-nav.v6-nav .mode-tab{display:flex;flex-direction:column;align-items:flex-start;text-align:left;width:100%;padding:14px 16px;font-size:14px;min-height:59px}
+.mode-nav.v6-nav .mode-tab small{font-size:11px;margin-top:6px}
+.v6-shade{position:fixed;inset:0;background:#0009;z-index:1090}
+.v6-shade[hidden], .v6-cast-view[hidden]{display:none!important}
+body.v6-open{overflow:hidden}
+body.v6-cast-mode .main{display:none!important}
+body.v6-cast-mode .hero-grid{display:none!important}
+body.v6-cast-mode #pageTitle{margin-top:25px}
+.v6-cast-view{max-width:1150px;margin:0 auto;padding:8px clamp(14px,4vw,28px) 50px}
+.v6-cast-hero{border:1px solid #285d3c;border-radius:18px;background:radial-gradient(circle at 100% 0%,#153624,#07140b 75%);padding:22px 18px;margin:10px 0 18px}
+.v6-hero-overline{font-size:10px;font-weight:900;color:#6fd899;letter-spacing:2px}
+.v6-cast-hero h2{font-size:clamp(25px,6vw,38px);line-height:1.08;margin:12px 0;letter-spacing:-1px}
+.v6-cast-hero h2 span{color:#76ef9c}
+.v6-cast-hero p{color:#bed1c4;font-size:13px;line-height:1.65}
+.v6-cast-hero a{font-size:12px;color:#9ff3b8}
+.v6-cast-controls{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;margin-bottom:8px}
+.v6-cast-controls input,.v6-cast-controls select{width:100%;min-height:45px;border:1px solid #35654a;border-radius:11px;background:#0b1b11;color:#e4fbe9;padding:11px}
+.v6-cast-count{color:#a6cbb2;font-size:12px;margin:10px 0 17px}
+.v6-cast-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.v6-person{min-width:0;overflow:hidden;border:1px solid #254f35;border-radius:16px;background:#07150b;display:flex;flex-direction:column}
+.v6-person[data-status=rumor]{border-color:#94743c}
+.v6-person[data-status=possible]{border-color:#626080}
+.v6-person-poster{aspect-ratio:2/3;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;background:linear-gradient(140deg,#0a2514,#09120d);width:100%}
+.v6-person-poster img{max-width:100%;max-height:100%;width:100%;height:100%;object-fit:contain;object-position:center;display:block}
+.v6-person-body{padding:12px 10px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.v6-person-body h3{font-size:14px;line-height:1.27;margin:2px 0 0;overflow-wrap:anywhere}
+.v6-actor{font-size:12px;color:#e1eedf;margin:0}
+.v6-status{display:inline-flex;align-self:flex-start;border:1px solid #539d65;color:#a4f6b8;border-radius:7px;background:#17412a;padding:5px 7px;font-size:9px;letter-spacing:.2px;font-weight:900;line-height:1.3}
+.v6-person[data-status=rumor] .v6-status{border-color:#b68d44;color:#ffe2a2;background:#39280e}
+.v6-person[data-status=possible] .v6-status{border-color:#9b96cc;color:#d5ceff;background:#26213e}
+.v6-works-label{font-size:9px;color:#8aaf99;letter-spacing:1px;font-weight:900;margin:7px 0 0}
+.v6-works{font-size:11px;line-height:1.5;color:#c9d6cb;margin:0;overflow-wrap:break-word}
+.v6-person-note{font-size:10px;line-height:1.45;color:#dec8a2;margin:8px 0 0;border-top:1px solid #344737;padding-top:9px}
+.v6-data-note{margin:24px 0 40px;color:#9bb4a5;font-size:11px;line-height:1.5}
+.catalog-divider.saga-heading[data-saga="infinity"]{background:linear-gradient(113deg,#192d46,#101e2d 72%);border-color:#708aa7;box-shadow:0 4px 22px #19395b44}
+.catalog-divider.saga-heading[data-saga="infinity"]:before{background:linear-gradient(#d6e8ff,#6ca9e7)}
+.catalog-divider.saga-heading[data-saga="infinity"] strong{color:#d7ebff}
+.catalog-divider.saga-heading[data-saga="multiverse"]{background:linear-gradient(115deg,#30214a,#160d29 69%,#122919);border-color:#8952b8;box-shadow:0 4px 22px #662aa344}
+.catalog-divider.saga-heading[data-saga="multiverse"]:before{background:linear-gradient(#f2b2ff,#a355da)}
+.catalog-divider.saga-heading[data-saga="multiverse"] strong{color:#eacfff}
+.catalog-divider[data-saga="xmen"]{background:linear-gradient(115deg,#222843,#151b30);border-color:#b5a35e}
+.catalog-divider[data-saga="xmen"] strong{color:#ffe9a1}
+.catalog-divider.phase-heading[data-phase="1"]{background:linear-gradient(105deg,#1d3547,#10202d);border-color:#648cb3}
+.catalog-divider.phase-heading[data-phase="1"] strong{color:#aedcff}
+.catalog-divider.phase-heading[data-phase="1"]:before{background:#70b5ec}
+.catalog-divider.phase-heading[data-phase="2"]{background:linear-gradient(105deg,#422820,#241914);border-color:#ba8055}
+.catalog-divider.phase-heading[data-phase="2"] strong{color:#ffcd9d}
+.catalog-divider.phase-heading[data-phase="2"]:before{background:#e3a35b}
+.catalog-divider.phase-heading[data-phase="3"]{background:linear-gradient(105deg,#33264c,#211931);border-color:#a388ce}
+.catalog-divider.phase-heading[data-phase="3"] strong{color:#e1c4ff}
+.catalog-divider.phase-heading[data-phase="3"]:before{background:#ae80ed}
+.catalog-divider.phase-heading[data-phase="4"]{background:linear-gradient(105deg,#15383c,#111d2b);border-color:#55a8b4}
+.catalog-divider.phase-heading[data-phase="4"] strong{color:#b8edf2}
+.catalog-divider.phase-heading[data-phase="4"]:before{background:#4fcbd2}
+.catalog-divider.phase-heading[data-phase="5"]{background:linear-gradient(105deg,#421a23,#1e121d);border-color:#ac5269}
+.catalog-divider.phase-heading[data-phase="5"] strong{color:#ffb8c7}
+.catalog-divider.phase-heading[data-phase="5"]:before{background:#df6679}
+.catalog-divider.phase-heading[data-phase="6"]{background:linear-gradient(105deg,#173d28,#0b2013);border-color:#57bc74}
+.catalog-divider.phase-heading[data-phase="6"] strong{color:#c1ffcf}
+.catalog-divider.phase-heading[data-phase="6"]:before{background:#62ee8a}
+/* Keep whole poster visible inside 2:3 frame, never crop movie/key art */
+.poster .poster-front{object-fit:contain!important;object-position:center!important;max-height:100%;max-width:100%}
+.poster .poster-bg{filter:blur(22px) brightness(.22) saturate(.7)!important;transform:scale(1.1)}
+.card .poster{background:#070e0a}
+@media(min-width:670px){.v6-cast-controls{grid-template-columns:1fr 250px}.v6-cast-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}.v6-person-body h3{font-size:16px}.v6-person-body{padding:15px}.v6-person .v6-actor{font-size:13px}}
+@media(min-width:1050px){.v6-cast-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
