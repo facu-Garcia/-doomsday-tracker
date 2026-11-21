@@ -84,7 +84,7 @@ const official=[
 ["Hank McCoy / Beast","Kelsey Grammer","The Last Stand · Days of Future Past · The Marvels (escena poscréditos)","xmenlast"],
 ["Remy LeBeau / Gambit","Channing Tatum","Deadpool & Wolverine","deadpool"],
 ["Peggy Carter","Hayley Atwell","Captain America: The First Avenger · The Winter Soldier · Ant-Man · Endgame · Agent Carter · What If...? · Doctor Strange in the Multiverse of Madness (variante)","cap1"],
-["Bruce Banner / Hulk","Mark Ruffalo","The Avengers · Age of Ultron · Thor: Ragnarok · Infinity War · Endgame · Shang-Chi (escena) · She-Hulk","endgame"]
+["Joaquín Torres / Falcon","Danny Ramirez","The Falcon and the Winter Soldier · Captain America: Brave New World","capbrave"]
 ];
 const rumor=[
 ["Wanda Maximoff / Bruja Escarlata","Elizabeth Olsen","Age of Ultron · Civil War · Infinity War · Endgame · WandaVision · Multiverse of Madness · VisionQuest","strange","Rumor de rodaje; no figura en la lista oficial de reparto."],
@@ -95,7 +95,7 @@ const rumor=[
 ["Peter Parker / Spider-Man (UCM)","Tom Holland","Civil War · Homecoming · Infinity War · Endgame · Far From Home · No Way Home · Brand New Day","spiderman","El actor no aparece entre los nombres confirmados."],
 ["Vision","Paul Bettany","Age of Ultron · Civil War · Infinity War · WandaVision · VisionQuest","visionquest","Referencias a rodajes próximos no confirman su aparición."],
 ["Kate Bishop / Hawkeye","Hailee Steinfeld","Hawkeye · The Marvels (cameo)","hawkeye","Aparición sugerida por reportes no oficiales."],
-["Pepper Potts","Gwyneth Paltrow","Iron Man · Iron Man 2 · The Avengers · Iron Man 3 · Homecoming · Infinity War · Endgame","ironman","Aparición mencionada en filtraciones, no corroborada."]
+["Bruce Banner / Hulk","Mark Ruffalo","The Avengers · Age of Ultron · Thor: Ragnarok · Infinity War · Endgame · Shang-Chi (escena) · She-Hulk","endgame","Su presencia se menciona en rumores, pero no aparece en la ficha oficial de Disney."]
 ];
 const possible=[
 ["Carol Danvers / Capitana Marvel","Brie Larson","Captain Marvel · Endgame · The Marvels","captainmarvel","Narrativamente posible por la trama multiversal, sin anuncio."],
