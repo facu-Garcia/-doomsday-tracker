@@ -74,3 +74,18 @@ body.v6-cast-mode #pageTitle{margin-top:25px}
 .card .poster{background:#070e0a}
 @media(min-width:670px){.v6-cast-controls{grid-template-columns:1fr 250px}.v6-cast-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}.v6-person-body h3{font-size:16px}.v6-person-body{padding:15px}.v6-person .v6-actor{font-size:13px}}
 @media(min-width:1050px){.v6-cast-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+/* DOOMSDAY V7: retratos de personaje, encabezados por certeza y por equipo */
+.v6-cast-grid{grid-auto-flow:row;align-items:stretch}
+.v7-cast-heading{grid-column:1/-1;display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:24px 0 1px;padding:19px 16px;border-radius:13px;border:1px solid #4a9862;border-left:6px solid #6ee69a;background:linear-gradient(110deg,#173924,#071c10 85%);color:#d9ffe4;font-weight:900;letter-spacing:.65px;font-size:clamp(13px,3vw,19px);text-transform:uppercase}
+.v7-cast-heading small{font-size:11px;white-space:nowrap;opacity:.8;letter-spacing:0;text-transform:none;font-weight:600}
+.v7-cast-heading.v7-level-rumor{border-color:#a37b40;border-left-color:#f2bd67;background:linear-gradient(110deg,#40301b,#1c170e 85%);color:#ffe3ad}
+.v7-cast-heading.v7-level-possible{border-color:#7d6fad;border-left-color:#af9be9;background:linear-gradient(110deg,#32264a,#171225 85%);color:#eee2ff}
+.v7-team-heading{grid-column:1/-1;display:flex;align-items:center;gap:11px;font-size:clamp(12px,2.5vw,15px);color:#badcc5;margin:12px 0 -2px;letter-spacing:.8px;text-transform:uppercase;font-weight:850}
+.v7-team-heading:after{content:'';height:1px;background:linear-gradient(90deg,#4c9563,#17321f);flex:1}
+.v7-individual{position:relative;isolation:isolate;overflow:hidden;background:#06130b}
+.v7-individual img{width:100%;height:100%;max-width:unset;max-height:unset;object-fit:cover!important;display:block}
+.v7-source-label{position:absolute;z-index:3;bottom:7px;left:7px;right:7px;width:max-content;max-width:calc(100% - 14px);background:#031409e3;color:#dbfae2;border:1px solid #316b42;padding:5px 6px;border-radius:5px;font-size:8px;font-weight:800;line-height:1.25;letter-spacing:.2px;overflow-wrap:break-word}
+.v6-person[data-status=rumor] .v7-source-label{border-color:#835f2e}
+.v6-person[data-status=possible] .v7-source-label{border-color:#79669a}
+@media(max-width:370px){.v7-cast-heading{padding:13px 10px;flex-wrap:wrap;gap:3px}.v7-source-label{font-size:7px}}
