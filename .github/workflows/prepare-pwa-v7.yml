@@ -1,0 +1,45 @@
+name: Preparar icono DOOMSDAY V7
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/prepare-pwa-v7.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  icons:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install Pillow==11.3.0
+      - name: Mejorar contraste y generar iconos con nombre nuevo
+        run: |
+          python - <<'PY'
+          from PIL import Image,ImageEnhance,ImageOps
+          pic=Image.open("app-icon-v6-512.png").convert("RGB")
+          # Ya proviene de un recorte de un cartel promocional existente; no se genera nuevo arte
+          pic=ImageEnhance.Brightness(pic).enhance(1.32)
+          pic=ImageEnhance.Contrast(pic).enhance(1.10)
+          pic=ImageEnhance.Sharpness(pic).enhance(1.18)
+          for dim in (192,512,1024):
+              pic.resize((dim,dim),Image.Resampling.LANCZOS).save(f"doom-icon-v7-{dim}.png", optimize=True)
+          # Fondo y margen de seguridad para los recortes circulares de Android
+          mask=Image.new("RGB",(512,512),(3,10,6))
+          inset=pic.resize((410,410),Image.Resampling.LANCZOS)
+          mask.paste(inset,((512-410)//2,(512-410)//2))
+          mask.save("doom-icon-v7-maskable-512.png", optimize=True)
+          print("DOOMSDAY V7: iconos 192, 512, 1024 y maskable creados")
+          PY
+      - name: Guardar iconos en el repositorio
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add doom-icon-v7-192.png doom-icon-v7-512.png doom-icon-v7-1024.png doom-icon-v7-maskable-512.png
+          if ! git diff --cached --quiet; then
+            git commit -m "pwa: brighter versioned Doom V7 icons [skip ci]"
+            git push
+          fi
