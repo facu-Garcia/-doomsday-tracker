@@ -50,7 +50,7 @@ if(p.note)fields.push(['Información adicional',p.note]);fields.forEach(([k,v])=
 d.append(summary,body);return d;}
 function card(p,index){const c=document.createElement('article');c.className='v8-card';c.dataset.status=p.status;c.append(photo(p));const info=document.createElement('div');info.className='v8-card-info';const chip=document.createElement('span');chip.className='v8-mini-status';chip.textContent=p.status==='official'?'Oficial':p.status==='rumor'?'Rumor':'Posible';
 const title=document.createElement('h3');title.textContent=p.name;const actor=document.createElement('p');actor.className='v8-actor';actor.textContent=p.actor;
-info.append(chip,title,actor,detail(p));c.append(info);return c}
+info.append(chip,title,detail(p));c.append(info);return c}
 const search=document.getElementById('v6-cast-search'),filter=document.getElementById('v6-cast-filter'),count=shell.querySelector('.v6-cast-count');
 function norm(t){return String(t).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();}
 function drawGallery(){
