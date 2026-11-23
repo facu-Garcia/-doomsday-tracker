@@ -30,8 +30,10 @@ function posterCandidates(p){
  const pick=DB.characterPortraits[p.actor];
  const arr=[];
  if(single[p.actor])arr.push({src:single[p.actor],kind:p.actor==='Robert Downey Jr.'?'Doomsday · individual':'Póster individual · película anterior'});
- if(pick&&(pick.zoom||1)===1)arr.push({src:pick.url,kind:pick.kind||'Arte individual'});
- // Solo como alternativa extrema: evitar los carteles dobles que motivaron el rediseño
+ if(pick&&(pick.zoom||1)===1&&(!single[p.actor]||pick.url!==single[p.actor]))arr.push({src:pick.url,kind:pick.kind||'Arte individual'});
+ if(pick&&(pick.zoom||1)>1.1)arr.push({src:pick.url,zoom:pick.zoom,ox:pick.ox??50,oy:pick.oy??50,kind:'Retrato individual · recorte de arte oficial'});
+ // En el caso de no existir un póster individual documentado, conservar como último recurso
+ // un solo personaje recortado, nunca presentar el arte doble completo.
  return arr;
 }
 function photo(p){
@@ -39,7 +41,7 @@ function photo(p){
  const img=document.createElement('img');img.alt='Retrato individual de '+p.name;img.loading='lazy';img.decoding='async';img.referrerPolicy='no-referrer';
  const label=document.createElement('span');label.className='v8-photo-source';
  const options=posterCandidates(p);let n=0;
- function fail(){if(n<options.length){const next=options[n++];label.textContent=next.kind;img.src=next.src;}else{img.remove();const missing=document.createElement('span');missing.className='v8-photo-unavailable';missing.textContent='Retrato individual no disponible';wrap.append(missing);label.textContent='Sin imagen verificada';}}
+ function fail(){if(n<options.length){const next=options[n++];label.textContent=next.kind;img.style.transform=next.zoom?'scale('+next.zoom+')':'none';img.style.transformOrigin=(next.ox??50)+'% '+(next.oy??50)+'%';img.src=next.src;}else{img.remove();const missing=document.createElement('span');missing.className='v8-photo-unavailable';missing.textContent='Retrato individual no disponible';wrap.append(missing);label.textContent='Sin imagen verificada';}}
  img.onerror=fail;fail();wrap.append(img,label);return wrap;
 }
 function detail(p){const d=document.createElement('details');d.className='v8-detail';const summary=document.createElement('summary');summary.textContent='Detalles';const body=document.createElement('div');body.className='v8-detail-body';
